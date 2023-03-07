@@ -1,0 +1,28 @@
+.Background{
+    background-color: rgba(38, 133, 19, 0.589);
+    width: 23%;
+    margin: 0 auto;
+    border-radius: 30px;
+}
+.CardItem{
+    border-radius: 30px;
+}
+.Name{
+    color:rgb(255, 8, 8);
+    text-align: left;
+    margin-left: 12%;
+    font-size: 1.8em;
+}
+.Data{
+    color:rgb(0, 0, 0);
+    text-align:right;
+    margin-right: 20%;
+    
+}
+.BotonCierre{
+    margin-left: 75%;
+    color:rgb(0, 0, 0);
+}
+.ID{
+    border-radius: 30px;
+}
