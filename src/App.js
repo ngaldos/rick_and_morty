@@ -6,6 +6,11 @@ import Cards from './components/Card/Cards.jsx'
 import SearchBar from './components/SearchBar/SearchBar.jsx'
 function App () {
   const [characters, setCharacters] = useState([])
+
+  const onClose= (id)=>{
+    setCharacters(characters.filter((char)=> char.id !== id));
+  }
+
   const onSearch= (id)=>{
     const KEY= '7b3900ebf212.09a5fbfae83932ed306d';
     const URL_BASE= 'https://be-a-rym.up.railway.app/api';
@@ -31,6 +36,7 @@ function App () {
        <div>
          <Cards
             characters={characters}
+            onClose= {onClose}
          />
        </div>
         <hr />
