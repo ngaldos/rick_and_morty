@@ -1,12 +1,18 @@
-import { useState } from 'react'
 import './App.css'
 import Nav from './components/Nav/Nav'
+import { useState } from 'react'
+import {Route, Routes} from 'react-router-dom'
 import Cards from './components/Card/Cards.jsx'
+import About from './components/About/About'
+import Landing from './Views/Landing'
+import Detail from './components/Detail/Detail'
+import { useParams } from 'react-router-dom'
+import Home from './Views/Home';
 
-import SearchBar from './components/SearchBar/SearchBar.jsx'
+
 function App () {
   const [characters, setCharacters] = useState([])
-
+  const {id} = useParams();
   const onClose= (id)=>{
     setCharacters(characters.filter((char)=> char.id !== id));
   }
@@ -27,21 +33,16 @@ function App () {
   return (
     <div className='App' style={{ padding: '25px' }}>
       <div className='Supreme'>
-        <div>
-          <img src='./Images/logo.png' alt=''></img>
-        </div>
-        <div className= {'Buscar'}>
-          <Nav onSearch={onSearch}/>
-        </div>
-       <div>
-         <Cards
-            characters={characters}
-            onClose= {onClose}
-         />
-       </div>
-        <hr />
-     </div>
-  </div>
+        <img src='./Images/imagen1' alt='img1'/>
+      </div>
+        <Nav onSearch={onSearch}/>
+      <Routes>
+        <Route path='/' element={<Landing/>}/>
+        <Route path='/home' element={<Cards characters={characters} onClose= {onClose}/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path={`/detail/${id}`} element={<Detail/>}/>
+      </Routes>
+    </div>
   )
 }
 

@@ -1,13 +1,13 @@
 .App {
    text-align: center;
-
+   background-image:url('Images/imagen1.jpg');
+   
+   background-size:400em;
 }
 .Buscar {
    padding: 2px;
    color:blue;
 }
 .Supreme{
-   background-image:url('Images/imagen1.jpg');
-   background-position: 42%;
-   background-size:400em;
+   
 }

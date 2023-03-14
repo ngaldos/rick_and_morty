@@ -1,28 +1,40 @@
 .Background{
+    
     background-color: rgba(38, 133, 19, 0.589);
-    width: 23%;
     margin: 0 auto;
-    border-radius: 30px;
+    border-radius: 20px;
+    
 }
 .CardItem{
-    border-radius: 30px;
+    border-radius: 30;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 .Name{
-    color:rgb(255, 8, 8);
+    color:rgb(160, 0, 0);
     text-align: left;
-    margin-left: 12%;
+    
     font-size: 1.8em;
 }
 .Data{
     color:rgb(0, 0, 0);
-    text-align:right;
-    margin-right: 20%;
+    text-align: center;
+    
     
 }
 .BotonCierre{
-    margin-left: 75%;
+    margin-left: 89%;
     color:rgb(0, 0, 0);
+    background-color: rgb(185, 179, 179);
+}
+.BotonCierre:hover{
+    color:white;
+    background-color: rgb(167, 1, 1);
+    transition: 0.4s;
 }
 .ID{
-    border-radius: 30px;
+    text-align: left;
+    margin-left: 10%;
+    color: yellow;
 }
