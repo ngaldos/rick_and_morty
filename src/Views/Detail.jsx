@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+
 const Detail= ()=>{
     const {id} = useParams();
-
     const [character, setCharacter]= useState({});
 
     useEffect(()=>{
@@ -12,9 +12,9 @@ const Detail= ()=>{
         fetch(`${URL_BASE}/character.${id}?key=${KEY}`)
         .then(response=> response.json())
         .then(data=>{
-            setCharacter([...character, data]);
+            setCharacter([data]);
         })
-    }, []);
+    }, [character]);
     return (
         <div>
             <h2>{character.name}</h2>
@@ -23,7 +23,6 @@ const Detail= ()=>{
             <p>{character.gender}</p>
             <p>{character.origin?.name}</p>
             <img src={character.img}/>
-
         </div>
     );
 }

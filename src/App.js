@@ -9,18 +9,21 @@ import Detail from './components/Detail/Detail'
 import { useParams } from 'react-router-dom'
 import Home from './Views/Home';
 
+import imagen from './Images/logo.png';
+
 
 function App () {
   const [characters, setCharacters] = useState([])
   const {id} = useParams();
+
   const onClose= (id)=>{
     setCharacters(characters.filter((char)=> char.id !== id));
   }
 
   const onSearch= (id)=>{
     const KEY= '7b3900ebf212.09a5fbfae83932ed306d';
-    const URL_BASE= 'https://be-a-rym.up.railway.app/api';
-    fetch(`${URL_BASE}/character/${id}?key=${KEY}`)
+    const URL_BASE= 'localhost:3000';
+    fetch(`${URL_BASE}/onsearch/${id}`)
     .then(response=> response.json())
     .then(data=>{
       if (data.name){
@@ -30,17 +33,18 @@ function App () {
       }
     })
   }
+
   return (
     <div className='App' style={{ padding: '25px' }}>
-      <div className='Supreme'>
-        <img src='./Images/imagen1' alt='img1'/>
+      <div className='Logo'>
+        <img src={imagen} alt='img1'/>
       </div>
         <Nav onSearch={onSearch}/>
       <Routes>
         <Route path='/' element={<Landing/>}/>
         <Route path='/home' element={<Cards characters={characters} onClose= {onClose}/>}/>
         <Route path='/about' element={<About/>}/>
-        <Route path={`/detail/${id}`} element={<Detail/>}/>
+        <Route path={`/detail/${id}`} element={<Detail id={id}/>}/>
       </Routes>
     </div>
   )

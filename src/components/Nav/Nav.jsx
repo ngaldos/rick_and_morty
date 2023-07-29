@@ -5,7 +5,7 @@ import styles from '../SearchBar/SearchBar.module.css';
 
 export default function Nav ({onSearch}){
     return (
-        <div>
+        <div className={styles.Supreme}>
             <SearchBar onSearch={onSearch}/>
             <div className={styles.Links}>
                 <Link to='/'><h3>Landing</h3></Link>
